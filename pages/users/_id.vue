@@ -3,13 +3,6 @@
     <h3>{{user.id}}</h3>
     <img :src="user.profile_image_url" width="120" :alt="user.id">
     <p>{{user.description || 'No discription'}}</p>
-    <p>
-      <nuxt-link to="/">
-        <small>
-          <b>トップへ戻る</b>
-        </small>
-      </nuxt-link>
-    </p>
     <h3>{{user.id}}さんの投稿一覧</h3>
     <ul>
       <li v-for="item in items" :key="item.id">
@@ -29,6 +22,7 @@
 import { mapGetters } from "vuex";
 
 export default {
+  layout: "user",
   head() {
     return {
       title: this.user.id

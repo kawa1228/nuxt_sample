@@ -5,7 +5,9 @@
     <p>{{user.description || 'No discription'}}</p>
     <p>
       <nuxt-link to="/">
-       <small><b>トップへ戻る</b></small>
+        <small>
+          <b>トップへ戻る</b>
+        </small>
       </nuxt-link>
     </p>
     <h3>{{user.id}}さんの投稿一覧</h3>
@@ -15,7 +17,9 @@
           <span>{{item.title}}</span>
         </h4>
         <div>{{item.body.slice(0, 130)}}...</div>
-        <p><a target="_black" :href="item.url">{{item.url}}</a></p>
+        <p>
+          <a target="_black" :href="item.url">{{item.url}}</a>
+        </p>
       </li>
     </ul>
   </section>
@@ -26,17 +30,21 @@ export default {
   head() {
     return {
       title: this.user.id
-    }
+    };
   },
   async asyncData({ route, app }) {
-    const user = await app.$axios.$get(`https://qiita.com/api/v2/users/${route.params.id}`)
-    const items = await app.$axios.$get(`https://qiita.com/api/v2/items?query=user:${route.params.id}`)
+    const user = await app.$axios.$get(
+      `https://qiita.com/api/v2/users/${route.params.id}`
+    );
+    const items = await app.$axios.$get(
+      `https://qiita.com/api/v2/items?query=user:${route.params.id}`
+    );
     return {
       user,
       items
-    }
+    };
   }
-}
+};
 </script>
 
 <style lang="css" scoped>
@@ -58,6 +66,4 @@ li + li {
 p {
   margin: 8px 0;
 }
-
 </style>
-

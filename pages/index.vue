@@ -35,6 +35,7 @@
 <script>
 import { mapGetters } from "vuex";
 export default {
+  layout: "home",
   async asyncData({ store }) {
     if (store.getters["items"].length) return;
     await store.dispatch("fetchItems");

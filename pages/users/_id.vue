@@ -22,7 +22,6 @@
 import { mapGetters } from "vuex";
 
 export default {
-  layout: "user",
   head() {
     return {
       title: this.user.id

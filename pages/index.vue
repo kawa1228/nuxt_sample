@@ -2,7 +2,16 @@
 <template>
   <section class="container">
     <div>
-      <h1>Index page</h1>
+      <h2>Index page</h2>
+      <ul>
+        <li>
+          <nuxt-link to="/login">ログインページへ</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/authed-route">認証が必要なページへ</nuxt-link>
+        </li>
+      </ul>
+      <hr>
       <h3>Nuxt.js のタグが付けられた投稿の一覧</h3>
       <ul>
         <li v-for="item in items" :key="item.id">
